@@ -1,0 +1,19 @@
+services:
+  channels-dvr:
+    image: fancybits/channels-dvr:latest
+    network_mode: host
+    restart: always
+    container_name: channels-dvr
+    hostname: channels
+    ports:
+      - "8089:8089"
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - ./:/channels-dvr
+      - /mnt/media/channels:/mnt/media/channels
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PUID=${CHANNELS_UID}
+      - GUID=${CHANNELS_GID}
+
