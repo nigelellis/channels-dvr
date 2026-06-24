@@ -1,6 +1,7 @@
 services:
   channels-dvr:
     image: fancybits/channels-dvr:latest
+    pull_policy: always
     network_mode: host
     restart: always
     container_name: channels-dvr
